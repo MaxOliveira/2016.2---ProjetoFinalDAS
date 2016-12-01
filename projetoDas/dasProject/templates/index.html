@@ -31,9 +31,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="http://www.tutorialrepublic.com" target="_blank">Home</a></li>
-        <li><a href="http://www.tutorialrepublic.com/about-us.php" target="_blank">About</a></li>
-        <li><a href="http://www.tutorialrepublic.com/contact-us.php" target="_blank">Contact</a></li>
+        <li class="active"><a href="/dasProject/index">Início</a></li>
       </ul>
     </div>
   </div>
@@ -42,14 +40,54 @@
   <div class="jumbotron">
     <h1>Sistema de Organização de Fotos</h1>
   </div>
-  <hr>
-  <div class="row">
-    <div class="col-xs-12">
-      <footer>
-        <p>&copy; Copyright 2016 </p>
-      </footer>
+</div>
+
+<div class="row">
+  <div class="col-xs-offset-3">
+    <label>Processar Imagens</label>
+    <div class="row">
+      <form class="col-md-offset-2 col-md-10" method="post" action="/dasProject/load_files/">
+          {% csrf_token %}
+          {{ form }}
+          </br>
+          <input class="col-md-2" id="submit" type="submit" value="Carregar" />
+      </form>
     </div>
   </div>
 </div>
+
+</br>
+</br>
+
+<div class="row">
+  <div class="col-xs-offset-3">
+    <label>Processar Pasta</label>
+    <div class="row">
+      <form class="text-center" method="post" action="/dasProject/load_folder/{{folder_path}}">
+          <input class="col-md-3" id="folder_path" name="folder_path">
+          <br />
+          <br />
+          <input class="col-md-2" id="submit" type="submit" value="Carregar" />
+      </form>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-xs-12">
+    <footer>
+      <p>&copy; Copyright 2016 </p>
+    </footer>
+  </div>
+</div>
+
 </body>
-</html>                                   
+</html>  
+
+<script>
+  $('form').on('submit', function(e){
+         
+   });
+</script>                                 
