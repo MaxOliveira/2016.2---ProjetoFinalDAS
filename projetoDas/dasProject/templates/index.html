@@ -43,33 +43,47 @@
 </div>
 
 <div class="row">
-  <div class="col-xs-offset-3">
-    <label>Processar Imagens</label>
+  <div class="col-xs-offset-1 col-xs-10">
+    <h2>
+      Passo 1
+    </h2>
+    <h3>
+      Selecione as imagens que deseja organizar:
+    </h3>
+    <br/>
+    <br/>
     <div class="row">
-      <form class="col-md-offset-2 col-md-10" method="post" action="/dasProject/load_files/">
-          {% csrf_token %}
-          {{ form }}
-          </br>
-          <input class="col-md-2" id="submit" type="submit" value="Carregar" />
-      </form>
+      <div class="col-xs-offset-3">
+        <label>Processar Imagens (.jpg)</label>
+        <div class="row">
+          <form class="col-md-10" method="post" action="/dasProject/load_files/">
+              {% csrf_token %}
+              {{ form }}
+              </br>
+              <input class="col-md-2" id="submit" type="submit" value="Carregar" />
+          </form>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-</br>
-</br>
+    <br/>
+    <br/>
 
-<div class="row">
-  <div class="col-xs-offset-3">
-    <label>Processar Pasta</label>
     <div class="row">
-      <form class="text-center" method="post" action="/dasProject/load_folder/{{folder_path}}">
-          <input class="col-md-3" id="folder_path" name="folder_path">
-          <br />
-          <br />
-          <input class="col-md-2" id="submit" type="submit" value="Carregar" />
-      </form>
+      <div class="col-xs-offset-3">
+        <label>Processar Pasta (ex: /Users/Convidado/Images)</label>
+        <div class="row">
+          <form method="post" action="/dasProject/load_folder/">
+            {% csrf_token %}
+            <input class="col-md-3" id="folder_path" name="folder_path">
+            <br />
+            <br />
+            <input class="col-md-2" id="submit" type="submit" value="Carregar" />
+          </form>
+        </div>
+      </div>
     </div>
+
   </div>
 </div>
 

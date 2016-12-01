@@ -19,7 +19,9 @@ def process_files(request):
         form = FileFieldForm()
     return render(request, 'index.html', {'form': form})
 
-def process_folder(request, folder_path):
+def process_folder(request):
+    folderPath = request.POST.get('folder_path', False)
+
     imageProcess = ImageProcess()
-    imageProcess.load_dataset(folder_path)
+    imageProcess.load_dataset(folderPath)
     return render(request, 'index.html', {'form': form})
