@@ -1,0 +1,82 @@
+<!doctype html>
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projeto final DAS" />
+    <title>Projeto final DAS</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+</head>
+<body>
+<div class="content">
+    <div class="header">
+        <div class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal">
+            <a class="pure-menu-heading" href="">Projeto DAS</a>
+            <ul>
+                <li class="pure-menu-selected"><a href="#">Início</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="splash">
+        <div class="pure-g-r">
+            <div class="pure-u-1">
+                <div class="l-box splash-text">
+                    <h1 class="splash-head">
+                        Processamento de imagens
+                    </h1>
+                    <h2 class="splash-subhead">
+                        Classificador de imagens e visualizador em filtro
+                    </h2>
+                    <p>
+                        <a href="#" class="pure-button primary-button">Saiba mais</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="pure-g-r content-ribbon">
+            <div class="pure-u-2-3">
+                <div class="l-box">
+                    <h4 class="content-subhead">Classificador de imagens</h4>
+                    <h3>Carregue suas imagens</h3>
+                    <p>
+                        breve descrição
+                    </p>
+                </div>
+            </div>
+            <div class="pure-u-1-3">
+                <div class="l-box">
+                    <img src="http://placehold.it/400x250"
+                         alt="Vídeo aulas e materiais digitais.">
+                </div>
+            </div>
+        </div>
+        <div class="pure-g-r content-ribbon">
+            <div class="pure-u-1-3">
+                <div class="l-box">
+                    <img src="http://placehold.it/400x250"
+                         alt="Fórum de Dúvidas">
+                </div>
+            </div>
+            <div class="pure-u-2-3">
+                <div class="l-box">
+                    <h4 class="content-subhead">Visualizador em filtro</h4>
+                    <h3>Visualise sua imagem em filtro</h3>
+                    <p>
+                        Inserir uma breve descrição
+                    </p>
+                </div>
+            </div>
+        </div>
+    <div class="footer">
+        Desenvolvimento Avançado de Software - Projeto Final
+    </div>
+</div>
+<script src="http://yui.yahooapis.com/3.12.0/build/yui/yui-min.js"></script>
+</body>
+</html>
