@@ -102,16 +102,14 @@
       </div>
       <div>
         <div id="face" class="tab-pane fade">
-          <h3>Detecção Face</h3>
-          <form action="{% url 'faceDetection' %}" class="form-inline" method="POST">
+         <h3>Detecção Face</h3>
+          <form action="{% url 'dasProject:faceDetection' %}" class="form-inline" method="POST">
             {% csrf_token %}
             Inserir a URL:
             <input type="text" name="Nome" size="40" /> 
             <input type="submit" name="">
           </form>
-          {% if show_image %}
-            <img src="{% static 'imagens/test_image_URL.png' %}" alt="#">
-          {% endif %}
+         
         </div>
       </div>
     </div>
