@@ -20,7 +20,6 @@ class Document(models.Model):
 class ImageProcess:
 
     def setCaffe(self):
-
         #The caffe module needs to be on the Python path;
         # we'll add it here explicitly.
         home_dir = os.getenv("HOME")
@@ -41,7 +40,7 @@ class ImageProcess:
         model_def = os.path.join(caffe_root, 'models', 'bvlc_reference_caffenet','deploy.prototxt')
         model_weights = os.path.join(caffe_root, 'models','bvlc_reference_caffenet','bvlc_reference_caffenet.caffemodel')
 
-        net = caffe.Net(model_def,      # defines the structure of the model
+        self.net = caffe.Net(model_def,      # defines the structure of the model
                         model_weights,  # contains the trained weights
                         caffe.TEST)     # use test mode (e.g., don't perform dropout)
 
@@ -84,7 +83,7 @@ class ImageProcess:
 
             print 'Loading all images to the memory and pre-processing them...'
             
-            net_data_shape = net.blobs['data'].data.shape
+            net_data_shape = self.net.blobs['data'].data.shape
             train_images = np.zeros(([len(img_files)] + list(net_data_shape[1:])))
 
             for (f,n) in zip(img_files, range(len(img_files))):
@@ -99,13 +98,13 @@ class ImageProcess:
                 print 'Processing batch %d' % n
                 last_n = np.min((n+10, train_images.shape[0]))
 
-                net.blobs['data'].data[0:last_n-n] = train_images[n:last_n]
+                self.net.blobs['data'].data[0:last_n-n] = train_images[n:last_n]
 
                 # perform classification
-                net.forward()
+                self.net.forward()
 
                 # obtain the output probabilities
-                vectors[n:last_n] = net.blobs['prob'].data[0:last_n-n]
+                vectors[n:last_n] = self.net.blobs['prob'].data[0:last_n-n]
             
             print 'Saving descriptors and file indices to ' + vectors_filename
             with h5py.File(vectors_filename, 'w') as f:
@@ -116,13 +115,13 @@ class ImageProcess:
 
     def predict_imageNet(image_filename):
         image = caffe.io.load_image(image_filename)
-        net.blobs['data'].data[...] = transformer.preprocess('data', image)
+        self.net.blobs['data'].data[...] = transformer.preprocess('data', image)
 
         # perform classification
-        net.forward()
+        self.net.forward()
 
         # obtain the output probabilities
-        output_prob = net.blobs['prob'].data[0]
+        output_prob = self.net.blobs['prob'].data[0]
 
         # sort top five predictions from softmax output
         top_inds = output_prob.argsort()[::-1][:5]

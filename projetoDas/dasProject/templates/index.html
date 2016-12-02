@@ -63,10 +63,10 @@
               <div class="row">
                 <form class="col-xs-10" method="post" action="/dasProject/load_files/">
                     {% csrf_token %}
-                    <label>Imagens de Origem (.jpg)</label>
+                    <label>URL Imagem Base</label>
+                    <input type="text" class="form-control" class="col-xs-3" name="image_url">
+                    <label>Imagens Analisadas</label>
                     {{ form }}
-                    <label>Pasta de Destino</label>
-                    <input type="text" class="form-control" class="col-xs-3" id="destiny_folder" name="destiny_folder">
                     </br>
                     <input class="btn btn-info" id="submit" type="submit" value="Processar" />
                 </form>
@@ -84,10 +84,10 @@
               <div class="row">
                 <form method="post" action="/dasProject/load_folder/">
                   {% csrf_token %}
+                  <label>URL imagem</label>
+                  <input type="text" class="form-control" class="col-xs-3" name="image_url">
                   <label>Pasta de Origem (ex: /Users/Convidado/Images)</label>
                   <input type="text" class="form-control" class="col-xs-3" name="origin_path">
-                    <label>Pasta de Destino</label>
-                  <input type="text" class="form-control" class="col-xs-3" name="destiny_path">
                   <br />
                   <input class="btn btn-info" id="submit" type="submit" value="Processar" />
                 </form>
