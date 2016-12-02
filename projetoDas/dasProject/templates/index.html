@@ -85,9 +85,9 @@
                 <form method="post" action="/dasProject/load_folder/">
                   {% csrf_token %}
                   <label>Pasta de Origem (ex: /Users/Convidado/Images)</label>
-                  <input type="text" class="form-control" class="col-xs-3" id="folder_path" name="folder_path">
+                  <input type="text" class="form-control" class="col-xs-3" name="origin_path">
                     <label>Pasta de Destino</label>
-                  <input type="text" class="form-control" class="col-xs-3" id="destiny_folder" name="destiny_folder">
+                  <input type="text" class="form-control" class="col-xs-3" name="destiny_path">
                   <br />
                   <input class="btn btn-info" id="submit" type="submit" value="Processar" />
                 </form>

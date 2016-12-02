@@ -20,7 +20,8 @@ def process_files(request):
     return render(request, 'index.html', {'form': form})
 
 def process_folder(request):
-    folderPath = request.POST.get('folder_path', False)
+    folderPath = request.POST.get('origin_path', False)
+    folderPath = request.POST.get('destiny_path', False)
 
     imageProcess = ImageProcess()
     imageProcess.load_dataset(folderPath)
